@@ -20,7 +20,7 @@ By default the documentation will be available at `http://{base_url}/api/documen
 
 #Example Controller Annotations
 
-```PHP
+```php
 <?php
 /**
  * @SWG\Swagger(
