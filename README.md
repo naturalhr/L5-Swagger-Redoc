@@ -1,107 +1,88 @@
-[![Total Downloads](https://poser.pugx.org/DarkaOnLine/L5-Swagger/downloads.svg)](https://packagist.org/packages/DarkaOnLine/L5-Swagger)
-[![Build Status](https://travis-ci.org/DarkaOnLine/L5-Swagger.svg?branch=master)](https://travis-ci.org/DarkaOnLine/L5-Swagger)
-[![Coverage Status](https://coveralls.io/repos/github/DarkaOnLine/L5-Swagger/badge.svg?branch=master)](https://coveralls.io/github/DarkaOnLine/L5-Swagger?branch=master)
-[![Code Climate](https://codeclimate.com/github/DarkaOnLine/L5-Swagger/badges/gpa.svg)](https://codeclimate.com/github/DarkaOnLine/L5-Swagger)
-[![StyleCI](https://styleci.io/repos/32315619/shield)](https://styleci.io/repos/32315619)
+This is a fork of [https://github.com/DarkaOnLine/L5-Swagger](DarkaOnLine/L5-Swagger) which is based on [https://github.com/zircote/swagger-php](swagger-PHP) and [https://github.com/swagger-api/swagger-ui](swagger-UI). 
 
-L5 Swagger
-==========
+Instead of the stock Swagger interface his package uses the [https://github.com/Rebilly/ReDoc](Rebilly/Redoc) UI. 
 
-Swagger 2.0 for Laravel >=5.1
+#Installation & Usage
 
-This package is a wrapper of [Swagger-php](https://github.com/zircote/swagger-php) and [swagger-ui](https://github.com/swagger-api/swagger-ui) adapted to work with Laravel 5.
-
-Installation
-============
-
-For Swagger 2.0
-
- Laravel  | Swagger UI| OpenAPI Spec compatibility | L5-Swagger
-:---------|:----------|:---------------------------|:----------
- 5.1.x    | 2.2       | 1.1, 1.2, 2.0              | ```php composer require "darkaonline/l5-swagger:~3.0" ```
- 5.2.x    | 2.2       | 1.1, 1.2, 2.0              | ```php composer require "darkaonline/l5-swagger:~3.0" ```
- 5.3.x    | 2.2       | 1.1, 1.2, 2.0              | ```php composer require "darkaonline/l5-swagger:~3.0" ```
- 5.4.x    | 2.2       | 1.1, 1.2, 2.0              | ```php composer require "darkaonline/l5-swagger:~4.0" ```
- 5.4.x    | 3         | 2.0                        | ```php composer require "darkaonline/l5-swagger:~5.0" ```
-
-
-For Swagger 1.0
-```php
-composer require darkaonline/l5-swagger
+```
+composer require-dev imikemiller/l5-swagger-redoc
 ```
 
-Open your `AppServiceProvider` (located in `app/Providers`) and add this line in `register` function
-```php
-$this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
+Register the service provider `L5Swagger\L5SwaggerServiceProvider::class` in the Laravel app config file `config/app.php` and run
+
 ```
-or open your `config/app.php` and add this line in `providers` section
-```php
-L5Swagger\L5SwaggerServiceProvider::class,
+php artisan l5-swagger:publish
 ```
-Changes in 5.0
-============
-- Swagger UI 3.
-- Configuration changes.
-- Assets dependency dropped. Now includes from composer package.
-- [See migration](#migrate-from-3040-to-50)
+By default the documentation will be available at `http://{base_url}/api/documentation`. You can configure the page title and other Swagger configuration options by editing `config/l5-swagger.php`.
 
-Changes in 4.0
-============
-- Laravel 5.4 support
+#TODO
+* Add support for configuration of the Redoc UI
 
-Changes in 3.2.1
-============
-- Middleware support for routes (#43) (@tantam)
+#Example Controller Annotations
 
-Changes in 3.2
-============
-- Allow to change swagger base path in generation process
-- Allow to define constants in config which can be used later in annotations
-- Tests fix form L5.3 and PHP >= 5.6
-- Update swagger UI to 2.1.5
-
-Changes in 3.1
-============
-- Closure routes moved to controller and got names (thanks to @bbs-smuller [#19](https://github.com/DarkaOnLine/L5-Swagger/pull/19))
-- Added option to rename generated API .json file name
-
-Changes in 3.0
-============
-- More accurate naming and structured config
-- Swagger UI - v2.1.4
-- Tests
-
-Migrate from 2.0 to 3.0
-============
-- Replace `$this->app->register('\Darkaonline\L5Swagger\L5SwaggerServiceProvider');` with `$this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);` in your `AppServiceProvider`
-or add `\L5Swagger\L5SwaggerServiceProvider::class` line in your `config/app.php` file
-- Run `l5-swagger:publish-config` to publish new config and make your changes if needed
-- Remove `public/vendor/l5-swagger` directory
-- Remove `resources/views/vendor/l5-swagger` directory
-- Run `l5-swagger:publish-assets` to publish new swagger-ui assets
-- Run `l5-swagger:publish-views` to publish new views
-
-Migrate from 3.0|4.0 to 5.0
-============
-- Remove `config/l5-swagger.php` file (make a copy if needed)
-- Remove `public/vendor/l5-swagger` directory
-- Remove `resources/views/vendor/l5-swagger` directory
-- Run `l5-swagger:publish` to publish new swagger-ui view and configuration
-- Edit your `config/l5-swagger.php` file
-
-Configuration
-============
-- Run `l5-swagger:publish` to publish everything
-- Run `l5-swagger:publish-config` to publish configs (`config/l5-swagger.php`)
-- Run `l5-swagger:publish-assets` to publish swagger-ui to your public folder (`public/vendor/l5-swagger`)
-- Run `l5-swagger:publish-views` to publish views (`resources/views/vendor/l5-swagger`) - only for versions <= 4.0
-- Run `l5-swagger:generate` to generate docs or set `generate_always` param to `true` in your config or .env file 
-
-Swagger-php
-======================
-The actual Swagger spec is beyond the scope of this package. All L5-Swagger does is package up swagger-php and swagger-ui in a Laravel-friendly fashion, and tries to make it easy to serve. For info on how to use swagger-php [look here](http://zircote.com/swagger-php/). For good examples of swagger-php in action [look here](https://github.com/zircote/swagger-php/tree/master/Examples/petstore.swagger.io).
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/DarkaOnLine/L5-Swagger/badge.svg?style=beer-square)](https://beerpay.io/DarkaOnLine/L5-Swagger)  [![Beerpay](https://beerpay.io/DarkaOnLine/L5-Swagger/make-wish.svg?style=flat-square)](https://beerpay.io/DarkaOnLine/L5-Swagger?focus=wish)
+```PHP
+<?php
+/**
+ * @SWG\Swagger(
+ *     basePath="/api/v1",
+ *     schemes={"http", "https"},
+ *     host=L5_SWAGGER_CONST_HOST,
+ *     @SWG\Info(
+ *         version="1.0.0",
+ *         title="L5 Swagger API",
+ *         description="L5 Swagger API description",
+ *         @SWG\Contact(
+ *             email="darius@matulionis.lt"
+ *         ),
+ *     )
+ * )
+ */
+/**
+ * @SWG\Get(
+ *      path="/projects",
+ *      operationId="getProjectsList",
+ *      tags={"Projects"},
+ *      summary="Get list of projects",
+ *      description="Returns list of projects",
+ *      @SWG\Response(
+ *          response=200,
+ *          description="successful operation"
+ *       ),
+ *       @SWG\Response(response=400, description="Bad request"),
+ *       security={
+ *           {"api_key_security_example": {}}
+ *       }
+ *     )
+ *
+ * Returns list of projects
+ */
+/**
+ * @SWG\Get(
+ *      path="/projects/{id}",
+ *      operationId="getProjectById",
+ *      tags={"Projects"},
+ *      summary="Get project information",
+ *      description="Returns project data",
+ *      @SWG\Parameter(
+ *          name="id",
+ *          description="Project id",
+ *          required=true,
+ *          type="integer",
+ *          in="path"
+ *      ),
+ *      @SWG\Response(
+ *          response=200,
+ *          description="successful operation"
+ *       ),
+ *      @SWG\Response(response=400, description="Bad request"),
+ *      @SWG\Response(response=404, description="Resource Not Found"),
+ *      security={
+ *         {
+ *             "oauth2_security_example": {"write:projects", "read:projects"}
+ *         }
+ *     },
+ * )
+ *
+ */
+ 
+ ```
