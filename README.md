@@ -2,7 +2,7 @@ This is a fork of [DarkaOnLine/L5-Swagger](https://github.com/DarkaOnLine/L5-Swa
 
 Instead of the stock Swagger interface his package uses the [Rebilly/Redoc](https://github.com/Rebilly/ReDoc) UI. 
 
-#Installation & Usage
+# Installation & Usage
 
 ```
 composer require-dev imikemiller/l5-swagger-redoc
@@ -15,10 +15,10 @@ php artisan l5-swagger:publish
 ```
 By default the documentation will be available at `http://{base_url}/api/documentation`. You can configure the page title and other Swagger configuration options by editing `config/l5-swagger.php`.
 
-#TODO
+# TODO
 * Add support for configuration of the Redoc UI
 
-#Example Controller Annotations
+# Example Controller Annotations
 
 ```php
 <?php
