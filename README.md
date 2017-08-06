@@ -1,6 +1,6 @@
 This is a fork of [DarkaOnLine/L5-Swagger](https://github.com/DarkaOnLine/L5-Swagger) which is based on [swagger-PHP](https://github.com/zircote/swagger-php) and [swagger-UI](https://github.com/swagger-api/swagger-ui). 
 
-Instead of the stock Swagger interface his package uses the [Rebilly/Redoc](https://github.com/Rebilly/ReDoc) UI. 
+Instead of the stock Swagger interface this package uses the [Rebilly/Redoc](https://github.com/Rebilly/ReDoc) UI. 
 
 # Installation & Usage
 
