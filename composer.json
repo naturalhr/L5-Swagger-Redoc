@@ -1,6 +1,6 @@
 {
-  "name": "darkaonline/l5-swagger",
-  "description": "Swagger integration to Laravel 5",
+  "name": "imikemiller/l5-swagger-redoc",
+  "description": "Swagger integration to Laravel 5 using the Rebilly Redoc UI.",
   "keywords": [
     "laravel",
     "swagger",
@@ -11,6 +11,10 @@
     {
       "name": "Darius Matulionis",
       "email": "darius@matulionis.lt"
+    },
+    {
+      "name": "Mike Miller",
+      "email": "iam@mikemiller.uk"
     }
   ],
   "require": {
