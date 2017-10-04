@@ -32,4 +32,14 @@ class PublishCommand extends Command
             '--provider' => 'L5Swagger\L5SwaggerServiceProvider',
         ]);
     }
+
+    /**
+     * Execute the console command in L5.5
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        $this->fire();
+    }
 }

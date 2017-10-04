@@ -33,4 +33,14 @@ class PublishViewsCommand extends Command
             '--tag'      => ['views'],
         ]);
     }
+
+    /**
+     * Execute the console command in L5.5
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        $this->fire();
+    }
 }

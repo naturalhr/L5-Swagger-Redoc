@@ -31,4 +31,14 @@ class GenerateDocsCommand extends Command
         $this->info('Regenerating docs');
         Generator::generateDocs();
     }
+
+    /**
+     * Execute the console command in L5.5
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        $this->fire();
+    }
 }
