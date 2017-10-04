@@ -11,7 +11,8 @@ composer require imikemiller/l5-swagger-redoc
 Register the service provider `L5Swagger\L5SwaggerServiceProvider::class` in the Laravel app config file `config/app.php` and run
 
 ```
-php artisan l5-swagger:publish
+php artisan l5-swagger:publish //to publish the resources
+php artisan l5-swagger:generate //to generate the doc spec json
 ```
 By default the documentation will be available at `http://{base_url}/api/documentation`. You can configure the page title and other Swagger configuration options by editing `config/l5-swagger.php`.
 
