@@ -32,4 +32,9 @@ class PublishCommand extends Command
             '--provider' => 'L5Swagger\L5SwaggerServiceProvider',
         ]);
     }
+    
+    public function handle()
+    {
+        $this->fire();
+    }
 }
