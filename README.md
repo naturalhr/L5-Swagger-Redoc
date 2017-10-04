@@ -5,7 +5,7 @@ Instead of the stock Swagger interface this package uses the [Rebilly/Redoc](htt
 # Installation & Usage
 
 ```
-composer require-dev imikemiller/l5-swagger-redoc
+composer require imikemiller/l5-swagger-redoc
 ```
 
 Register the service provider `L5Swagger\L5SwaggerServiceProvider::class` in the Laravel app config file `config/app.php` and run
