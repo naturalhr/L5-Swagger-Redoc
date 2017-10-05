@@ -17,7 +17,6 @@
   </style>
 </head>
 <body>
-@if()
 <redoc spec-url='{!! $urlToDocs !!}'></redoc>
 <script src="https://rebilly.github.io/ReDoc/releases/latest/redoc.min.js"> </script>
 </body>
