@@ -1,5 +1,5 @@
 {
-  "name": "imikemiller/l5-swagger-redoc",
+  "name": "naturalhr/l5-swagger-redoc",
   "description": "Swagger integration to Laravel 5 using the Rebilly Redoc UI.",
   "keywords": [
     "laravel",
